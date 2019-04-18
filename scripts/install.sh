@@ -7,4 +7,7 @@ popd
 
 GUIDELINE=2018.11
 
-curl -s "https://refstack.openstack.org/api/v1/guidelines/$GUIDELINE/tests?target=compute&type=required,advisory&alias=true&flag=true" | grep -v tempest.api.identity.v3.test_projects.IdentityV3ProjectsTest.test_list_projects_returns_only_authorized_projects > test-list.txt
+curl -s "https://refstack.openstack.org/api/v1/guidelines/$GUIDELINE/tests?target=compute&type=required,advisory&alias=true&flag=true" | \
+    grep -v tempest.api.identity.v3.test_projects.IdentityV3ProjectsTest.test_list_projects_returns_only_authorized_projects | \
+    grep -v "tempest.api.compute.servers.test_list_server_filters.ListServerFiltersTestJSON.test_list_servers_filtered_by_ip_regex" \
+    > test-list.txt
