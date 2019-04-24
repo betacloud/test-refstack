@@ -8,3 +8,8 @@ PUSH_TO_REFSTACK=${PUSH_TO_REFSTACK:-false}
 if [[ $PUSH_TO_REFSTACK == "true" ]]; then
     refstack-client upload $resultfile --url https://refstack.openstack.org/api -i id_rsa.refstack -y
 fi
+
+./mc mb --ignore-existing betacloud/travis-test-refstack/
+
+timestamp=$(date +%Y%m%d-%H%M)
+./mc cp $resultfile betacloud/travis-test-refstack/$timestamp.json
