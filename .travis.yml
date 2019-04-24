@@ -7,7 +7,7 @@ before_install:
   - tar xf secrets.tar
 
 before_script:
-  - bash scripts/install.sh
+  - bash scripts/prepare.sh
 
 script:
   - bash scripts/run.sh
